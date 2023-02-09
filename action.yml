@@ -1,4 +1,4 @@
-name: 'Find Comment'
+name: 'Find Comments'
 description: 'Find an issue or pull request comment'
 inputs:
   token:

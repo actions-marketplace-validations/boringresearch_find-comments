@@ -59,8 +59,7 @@ export async function findComment(
       )
       if (comment) return comment
     }
-  } else {
-    // direction == 'last'
+  } else if (inputs.direction == 'last'){
     const comments = await octokit.paginate(
       octokit.rest.issues.listComments,
       parameters
@@ -70,6 +69,13 @@ export async function findComment(
       findCommentPredicate(inputs, comment)
     )
     if (comment) return comment
+  }
+  else{
+      const comments = await octokit.paginate(
+        octokit.rest.issues.listComments,
+        parameters
+      )
+    return comments
   }
   return undefined
 }

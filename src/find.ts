@@ -75,7 +75,8 @@ export async function findComment(
         octokit.rest.issues.listComments,
         parameters
       )
-    return comments
+      const commentIds = comments.map(comment => comment.id);
+      return commentIds;
   }
   return undefined
 }
